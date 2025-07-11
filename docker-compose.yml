@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: iam-client-registry-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-orange-wildflower-ac248jl4-pooler.sa-east-1.aws.neon.tech:5432/iam-client-registry-service?sslmode=require&channel_binding=require
+      SPRING_DATASOURCE_USERNAME: neondb_owner
+      SPRING_DATASOURCE_PASSWORD: npg_P8McHab0WuvI
