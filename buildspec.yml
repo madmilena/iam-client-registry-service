@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo "Instalando Maven"
+      - mvn --version
+  build:
+    commands:
+      - echo "Rodando build Maven"
+      - mvn clean install
+
+artifacts:
+  files:
+    - target/*.jar
