@@ -10,8 +10,8 @@ phases:
   build:
     commands:
       - echo "Rodando build Maven"
-      - mvn clean install
+      - mvn clean package
 
 artifacts:
   files:
-    - target/*.jar
+    - target/**/*
