@@ -2,16 +2,15 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      java: corretto11
     commands:
       - echo "Instalando Java 17 manualmente"
-      - curl -O https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz
+      - curl -L -o amazon-corretto-17-x64-linux-jdk.tar.gz https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz
       - mkdir -p /opt/java/openjdk
       - tar -xzf amazon-corretto-17-x64-linux-jdk.tar.gz -C /opt/java/openjdk --strip-components=1
       - export JAVA_HOME=/opt/java/openjdk
       - export PATH=$JAVA_HOME/bin:$PATH
       - java -version
+      - echo "Instalando Maven"
       - mvn --version
   build:
     commands:
