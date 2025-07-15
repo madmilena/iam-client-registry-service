@@ -1,6 +1,6 @@
 package com.hablou.AS1.iam_client_registry_service.application.service;
 
-import com.hablou.AS1.iam_client_registry_service.infrastructure.repository.ClientRepository;
+import com.hablou.AS1.iam_client_registry_service.domain.ClientRepository;
 import org.springframework.stereotype.Service;
 
 @Service

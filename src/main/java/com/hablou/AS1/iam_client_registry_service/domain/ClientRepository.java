@@ -1,6 +1,6 @@
-package com.hablou.AS1.iam_client_registry_service.infrastructure.repository;
+package com.hablou.AS1.iam_client_registry_service.domain;
 
-import com.hablou.AS1.iam_client_registry_service.domain.Client;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
