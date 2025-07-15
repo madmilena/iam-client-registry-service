@@ -1,17 +1,17 @@
-# Etapa 1: build da aplicação
-FROM maven:3.9.6-eclipse-temurin-21 AS builder
+# Etapa 1: build
+FROM eclipse-temurin:17-jdk AS builder
 
 WORKDIR /app
+
 COPY . .
-RUN mvn clean package -DskipTests
 
-# Etapa 2: imagem de produção
-FROM eclipse-temurin:21-jdk-alpine
+RUN ./mvnw clean package -DskipTests
+
+# Etapa 2: runtime
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY --from=builder /app/target/iam-client-registry-service-0.0.1-SNAPSHOT.jar app.jar
-
-EXPOSE 8080
+COPY --from=builder /app/target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
